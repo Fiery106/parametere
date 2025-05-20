@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            it's complicated … :)
+        </title>
+    </head>
+
+
+    
+    <body>
+        <div>
+            <h1>
+                Valutakalkulator for USD til NOK + fortollingsgebyr 
+            </h1>
+
+            <input type="number" id="amount" placeholder="antall usd" />
+
+            <button onclick="writeFunc()">
+                Sjekk
+            </button>
+
+
+            <p id="output"></p>
+        </div>
+
+
+        <script>
+            let output = document.getElementById("output");
+            let mva = 0;
+
+            let convert = 10.27;
+            let post = 249;
+            let cost = 0.25
+            
+
+
+            function writeFunc() {
+                let amount = Number(document.getElementById("amount").value) * convert;
+
+                if (amount) {
+                    output.innerHTML = `
+                        ${convertToNOK(amount)} <br>
+                        ${mailingFunc(amount)} <br> <br>
+
+                        Pakken din skal koste ${calcTotal(amount)}kr
+                    `
+                } else {
+                    output.innerHTML = `${convertToNOK()}`
+                }
+            }
+
+
+            function convertToNOK(x = 10) { //1 usd -> nok = 10.27kr
+                return `${(x / convert).toFixed(0)}usd er lik ${(x).toFixed(2)}kr`
+            }
+
+
+            function mailingFunc(x = 10) { //249 + (amount * 0.25)
+                return `Fortollingsgebyr for Posten blir ${post}kr og MVA blir ${(x * cost).toFixed(2)}kr`
+            }
+
+
+            function calcTotal(x) {
+                return ((x) + post + (x * cost)).toFixed(2)
+            }
+        </script>
+    </body>
+</html>
