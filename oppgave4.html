@@ -14,7 +14,7 @@
                 Regn ut arealet til en Sirkel
             </h1>
 
-            <input type="number" id="radius" placeholder="radius"/>
+            <input type="number" id="radius" placeholder="radius i cm"/>
 
 
             <button onclick="writeFunc()">
@@ -33,9 +33,9 @@
             function writeFunc() {
                 let radius = Number(document.getElementById("radius").value);
 
-                
-                if (true) {
-                    output.innerHTML = `Arealet er ${measureRadius(radius).toFixed(6)}`
+
+                if (radius) {
+                    output.innerHTML = `Arealet er ${measureRadius(radius).toFixed(6)}cm`
                 } else {
                     output.innerText = "Noe feil har oppstått"
                 }
