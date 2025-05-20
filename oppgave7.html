@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Initialer
+        </title>
+    </head>
+
+
+    
+    <body>
+        <div>
+            <h1>
+                Skriv inn navnet ditt
+            </h1>
+
+            <div>
+                <input type="text" id="first_name" placeholder="fornavn" required />
+
+                <input type="text" id="middle_name" placeholder="middelsnavn" />
+                
+                <input type="text" id="last_name" placeholder="etternavn" required />
+            </div>
+
+            <button onclick="writeFunc()">
+                Send
+            </button>
+
+
+            <p id="output"></p>
+        </div>
+
+
+        <script>
+            let output = document.getElementById("output");
+
+
+            function writeFunc() {
+                let first_name = document.getElementById("first_name").value;
+                let middle_name = document.getElementById("middle_name").value;
+                let last_name = document.getElementById("last_name").value;
+
+
+                if (first_name && last_name) {
+                    output.innerHTML = `Navnet ditt er "${writeName(first_name, middle_name, last_name)}", ikke sant?`
+                } else {
+                    output.innerText = "Noe feil har oppstått"
+                }
+            }
+
+
+            function writeName(x, y = "", z) {
+                if (y) {
+                    return `${(x.slice(0, 1)).toUpperCase()}.  ${(y.slice(0, 1)).toUpperCase()}.  ${z}`
+                } else {
+                    return `${(x.slice(0, 1)).toUpperCase()}  ${z}`
+                }
+            }
+        </script>
+    </body>
+</html>
