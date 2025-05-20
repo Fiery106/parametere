@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Tenåring i huset?
+        </title>
+    </head>
+
+
+    
+    <body>
+        <div>
+            <h1>
+                Skriv inn alder
+            </h1>
+
+            <input type="number" id="age" min="0" />
+
+
+            <button onclick="writeFunc()">
+                Send
+            </button>
+
+
+            <p id="output"></p>
+        </div>
+
+
+        <script>
+            let output = document.getElementById("output");
+
+            function writeFunc() {
+                let age = Number(document.getElementById("age").value);
+
+                if (age) {
+                    output.innerText = `Du er en ${checkAge(age)}`
+                } else {
+                    output.innerText = "Noe feil har oppstått"
+                }
+            }
+
+
+            function checkAge(x) {
+                if (x < 13) {
+                    return "unge"
+                } else if (x >= 13 && x <= 19) {
+                    return "tenåring"
+                } else if (x >= 20 && x <= 66) {
+                    return "voksen"
+                } else if (x >= 67 && x <= 99) {
+                    return "pensjonist"
+                } else {
+                    return "dødd eller en spøkelse lol"
+                }
+            }
+        </script>
+    </body>
+</html>
