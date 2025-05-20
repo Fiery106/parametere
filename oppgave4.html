@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Sirkel areal
+        </title>
+    </head>
+
+
+    
+    <body>
+        <div>
+            <h1>
+                Regn ut arealet til en Sirkel
+            </h1>
+
+            <input type="number" id="radius" placeholder="radius"/>
+
+
+            <button onclick="writeFunc()">
+                Sjekk
+            </button>
+
+
+            <p id="output"></p>
+        </div>
+
+
+        <script>
+            let output = document.getElementById("output");
+
+
+            function writeFunc() {
+                let radius = Number(document.getElementById("radius").value);
+
+                
+                if (true) {
+                    output.innerHTML = `Arealet er ${measureRadius(radius).toFixed(6)}`
+                } else {
+                    output.innerText = "Noe feil har oppstått"
+                }
+            }
+
+
+            function measureRadius(x) { //Areal = Math.PI * (r * r)
+                return Math.PI * (x * x)
+            }
+        </script>
+    </body>
+</html>
