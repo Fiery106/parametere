@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            storstTall
+        </title>
+    </head>
+
+
+    
+    <body>
+        <div>
+            <h1>
+                Hvilket tall er størst?
+            </h1>
+
+            <div>
+                <input type="number" id="num1" placeholder="123" />
+
+                <input type="number" id="num2" placeholder="456"/>
+            </div>
+
+
+            <button onclick="writeFunc()">
+                Sjekk
+            </button>
+
+
+            <p id="output"></p>
+        </div>
+
+
+        <script>
+            let output = document.getElementById("output");
+
+            function writeFunc() {
+                let num1 = Number(document.getElementById("num1").value);
+                let num2 = Number(document.getElementById("num2").value);
+                
+                if (num1 && num2) {
+                    output.innerHTML = `Det største tallet er ${checkNum(num1, num2)}`
+                } else {
+                    output.innerText = "Noe feil har oppstått"
+                }
+            }
+            
+
+            function checkNum(x, y) {
+                if (x > y) {
+                    return x
+                } else if (x < y) {
+                    return y
+                } else {
+                    return "begge tall"
+                }
+            }
+        </script>
+    </body>
+</html>
