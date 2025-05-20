@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Rektangel areal
+        </title>
+    </head>
+
+
+    
+    <body>
+        <div>
+            <h1>
+                Regn ut arealet til en rektangel
+            </h1>
+
+            <div>
+                <input type="number" id="length" placeholder="lendge"/>
+
+                <input type="number" id="width" placeholder="bredde"/>
+            </div>
+
+
+            <button onclick="writeFunc()">
+                Sjekk
+            </button>
+
+
+            <p id="output"></p>
+        </div>
+
+
+        <script>
+            let output = document.getElementById("output");
+
+            function writeFunc() {
+                let length = Number(document.getElementById("length").value);
+                let width = Number(document.getElementById("width").value);
+
+                if (length && width) {
+                    output.innerHTML = `Arealet er ${measureArea(length, width)}`
+                } else {
+                    output.innerText = "Noe feil har oppstått"
+                }
+            }
+
+
+            function measureArea(x, y) { //areal = lengde * bredde
+                return x * y
+            }
+        </script>
+    </body>
+</html>
